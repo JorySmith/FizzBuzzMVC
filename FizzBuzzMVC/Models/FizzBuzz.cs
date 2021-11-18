@@ -9,6 +9,7 @@ namespace FizzBuzzMVC.Models
     {
         public int FizzValue { get; set; }
         public int BuzzValue { get; set; }
+        // Instantiate a list of strings named Result
         public List<string> Result { get; set; } = new();
     }
 }
