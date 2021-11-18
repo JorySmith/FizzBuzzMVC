@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "FizzBuzz App";
+}
+
+<div class="container col-xl-8 p-4 mt-5">
+    <div class="row gy-2 h-100 row-cols-1 row-cols-md-2">
+        <div class="col border-2 border-end">
+            <h1 class="font-weight-bold lh-1 mb-3">FizzBuzz</h1>
+            <h4 class="lead">This web app will take two inputs from the user, which will be compared to every number between 1 and 100. If the number is only divisible by the user's first input number, the app will display "Fizz". If the number is only divisible by the user's second input number, the app will display "Buzz". Finally, if the number is divisible by both numbers the user input, the app will display "FizzBuzz".</h4>
+
+            <h2 class="mt-5 border-bottom border-2">Instructions</h2>
+            <p>Enter 2 numbers. The first to represent "Fizz" and the second to represent "Buzz."</p>
+        </div>
+        <div class="col">
+            <div>
+                <h5>Enter numbers</h5>
+                    @* Input form here *@
+                <form asp-controller="Home" asp-action="FBPage" method="post">
+                    <div class="form-group">
+                        <label asp-for="FizzValue">Fizz Number</label>
+                        <input type="number" asp-for="FizzValue" class="form-control" placeholder="Enter a number for Fizz" value="@Model.FizzValue" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="BuzzValue">Buzz Number</label>
+                        <input type="number" asp-for="BuzzValue" class="form-control" placeholder="Enter a number for Buzz" value="@Model.BuzzValue" />
+                    </div>
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                </form>
+                <h2 class="mt-5 border-bottom border-2">Results</h2>
+                <div class="table-responsive">
+                    @*table goes here*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
