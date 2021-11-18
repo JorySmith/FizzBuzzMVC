@@ -1,4 +1,4 @@
-# FizzBuzzMVC
+# FizzBuzz ASP.NET MVC Web App
 
  A C# ASP.NET program that implements a FizzBuzz algorithm.
  
