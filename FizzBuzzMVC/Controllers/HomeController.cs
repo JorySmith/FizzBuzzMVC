@@ -23,10 +23,61 @@ namespace FizzBuzzMVC.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult FBPage()
         {
-            return View();
+            // Instantiate a new model class called model derived from FizzBuzz model class
+            FizzBuzz model = new();
+
+            // Assign default values to model properties
+            model.FizzValue = 3;
+            model.BuzzValue = 5;
+
+            // Make sure to pass the model class data to the view/client-side UI
+            return View(model);
         }
+
+        [HttpPost]
+        // Validate form is from our web app and not somewhere else
+        [ValidateAntiForgeryToken]
+        // Create public IAR with FizzBuzz model type class passed as a property named fizzbuzz, which will store form submitted data
+        public IActionResult FBPage(FizzBuzz fizzbuzz)
+        {
+            // Instantiate a list of strings called fbItems to store fizzbuzz looping results
+            List<string> fbItems = new();
+
+            // Create bool fizz/buzz variables to manipulate 
+            bool fizz;
+            bool buzz;
+
+            // Loop through 1 - 100 checking if numbers are divisible by fizz, buzz, or both
+            for (int i = 1; i <= 100; i++)
+            {
+                fizz = (i % fizzbuzz.FizzValue == 0);
+                buzz = (i % fizzbuzz.BuzzValue == 0);
+
+                if (fizz && buzz)
+                {
+                    fbItems.Add("FizzBuzz");
+                }
+                else if (fizz)
+                {
+                    fbItems.Add("Fizz");
+                }
+                else if (buzz)
+                {
+                    fbItems.Add("Buzz");
+                }
+                else
+                {
+                    fbItems.Add(i.ToString());
+                }
+
+            }
+
+            return View(fizzbuzz);
+        }
+
 
         public IActionResult Privacy()
         {

@@ -1,4 +1,7 @@
-﻿@{
+﻿@* Instantiate FizzBuzz model so its properties can be accessed and updated by the user here in the view *@
+@model FizzBuzzMVC.Models.FizzBuzz
+
+@{
     ViewData["Title"] = "FizzBuzz App";
 }
 
@@ -14,7 +17,7 @@
         <div class="col">
             <div>
                 <h5>Enter numbers</h5>
-                    @* Input form here *@
+                @* Input form here to collect numbers to send to back end for logic processing *@
                 <form asp-controller="Home" asp-action="FBPage" method="post">
                     <div class="form-group">
                         <label asp-for="FizzValue">Fizz Number</label>
