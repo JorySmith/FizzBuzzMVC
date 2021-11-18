@@ -76,7 +76,7 @@ namespace FizzBuzzMVC.Controllers
             }
 
             // Assign fbResults to fizzbuzz.Result model
-            fizzbuzz.Result = fbItems;
+            fizzbuzz.Results = fbItems;
 
             return View(fizzbuzz);
         }
